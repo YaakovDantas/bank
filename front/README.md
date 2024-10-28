@@ -1,56 +1,53 @@
-# Banco Yaakov
 
-## Instalação e configuração
-```
-1. Faça um clone desse repositório;
-2. Acesse a raiz do projeto `cd front`;
-4. De preferencia use o `yarn`, instale seguindo [link](https://yarnpkg.com/getting-started/install);
-5. Rode `yarn` para instalar as depenências;
-```
+# Yaakov Bank
 
-## Configuração
+## Installation and Setup
 
-Copiar a estrutura dos arquivo exemplo de váriáveis de ambiente
+1. Clone this repository.
+2. Navigate to the project root with `cd front`.
+3. Preferably use `yarn`; install it by following [this link](https://yarnpkg.com/getting-started/install).
+4. Run `yarn` to install the dependencies.
 
-```
+## Configuration
+
+Copy the structure of the example environment variables file:
+
+```shell
 cp .env.example .env
 ```
 
-### Compile com 'hot-reload' em desenvolvimento
-```
-6. Rode `yarn serve` para iniciar o servidor
-```
+### Compile with Hot-Reload for Development
 
-### Compilar e minificar para produção
-```
-Rode `yarn build`
-```
+5. Run `yarn serve` to start the development server.
 
-### Listar e corrigir arquivos
+### Compile and Minify for Production
+
+Run `yarn build`
+
+### List and Fix Files
+
+Run `yarn lint`
+
+## Folder Structure
+
 ```
-Rode `yarn lint`
-```
-
-## Estrutura de pastas
-
-
 └── public
 └── src
-    ├── assets/ # itens, imagens e icones usados na aplicação
-    ├── components/ # componentes compartilháveis em toda aplicação
-    ├── router/ # configurações das rotas
-    ├── services/ # configuração de serviços utilizados
-    ├── store # configuração e dispatch das ações do Redux 
-    ├── styles/ # variáveis de configurações
-    ├── views/ # páginas da aplicação
+    ├── assets/        # items, images, and icons used in the application
+    ├── components/    # shared components used throughout the application
+    ├── router/        # route configuration
+    ├── services/      # service configurations
+    ├── store/         # Redux actions configuration and dispatch
+    ├── styles/        # configuration variables
+    ├── views/         # application pages
+```
 
+## Environment Variables:
 
-## Variáveis de ambiente:
-
-
+```
 VUE_APP_API_SERVER=http://127.0.0.1:8000/api
+```
 
+### Description of Variables:
 
-### Descrição das variáveis:
-
-`VUE_APP_API_SERVER`= informar url do back-end
+- `VUE_APP_API_SERVER`: specify the backend URL
