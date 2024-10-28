@@ -1,114 +1,87 @@
-# Banco Yaakov
+# Yaakov Bank
 
-## Instalação
+## Installation
 
-Instale as dependências do projeto via composer
+Install the project dependencies via composer
 
-```
-composer install
-```
+```composer install```
 
-Configure o autoload
+Configure autoload
 
-```
-composer dump-autoload
-```
+``` composer dump-autoload``` 
 
-## Configuração
+## Configuration
 
-Copiar a estrutura dos arquivo exemplo de váriáveis de ambiente
+Copy the structure of the example environment variable files
 
-```
-cp .env.example .env
-```
+```cp .env.example .env```
 
-Em seguida
+Next
 
-```
-php artisan key:generate
-```
+```php artisan key:generate```
 
-Configure as credenciais de acesso ao banco
-
+Configure the database access credentials
 ```
 DB_CONNECTION=sqlite
 DB_FOREIGN_KEYS=true
 ```
+Create a database.sqlite file in the root of the database folder
 
-Crie um arquivo `database.sqlite` na raiz da pasta database
-
-Caso não tenha o php-sqlite habilitado colocar no seu php.ini
-
+If you do not have php-sqlite enabled, put it in your php.ini
 ```
-extension_dir = "<php installation directory>/php-7.4.3/ext"
+extension_dir = "<php ​​installation directory>/php-7.4.3/ext"
 extension=php_pdo_sqlite.dll
 extension=php_sqlite3.dll
-sqlite3.extension_dir = "<php installation directory>/php-7.4.3/ext"
+sqlite3. ... directory>/php-7.4.3/ext"
 ```
-
-Gerar a estrutura base do banco de dados:
-
+Generate the base structure of the database:
 ```
 php artisan migrate
 ```
-
-Em seguida criar os dados de teste
-
+Then create the test data
 ```
 php artisan db:seed
 ```
+## Execution
 
-## Execução
-
-Executar o sistema
-
+Run the system
 ```
 php artisan serve
 ```
+## Examples
 
-## Exemplos
-
-Para criar uma nova conta, com saldo, o payload abaixo deve ser enviado para o endpoint **/api/accounts** com uma requisição do tipo POST:
-
+To create a new account, with a balance, the payload below must be sent to the **/api/accounts** endpoint with a POST request:
 ```
 {
-    "name": "Teste",
-    "password":"1111",
-    "account_number":"111",
-    "balance": 100.00,
-    "account_code":"22",
-    "agency":"333"
+"name": "Teste",
+"password":"1111",
+"account_number":"111",
+"balance": 100.00,
+"account_code":"22",
+"agency":"333"
 }
 ```
-
-A conta padrão criada pela seeder é a seguinte:
-
+The default account created by the seeder is the following:
 ```
 {
-    "name": "Thiago Dantas",
-    "password" : "1111",
-    "account_number" : "111",
-    "account_code" : "22",
-    "balance" : 1000,
-    "agency": "333"
+"name": "Thiago Dantas",
+"password" : "1111",
+"account_number" : "111",
+"account_code" : "22",
+"balance" : 1000,
+"agency": "333"
 }
 ```
-
-
-Para criar a conta usando a factory basta executar o seguinte comando:
-
+To create the account using the factory, simply run the following command:
 ```
 php artisan db:seed --class=AccountFakeTableSeeder
 ```
+## Development Patterns
 
-## Padrões de Desenvolvimento
-
-**Estilo do Código**
+**Code Style**
 
 [PSR-2](http://www.php-fig.org/psr/psr-2/)
 
-**Divisão das camadas**
+**Division of layers**
 
-```
 Controller -> Service -> Repository -> Model
-```
